@@ -36,7 +36,6 @@ public class DatosGenerales extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tb_Nombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        tb_Tiempolaborar = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         rb_Soltero = new javax.swing.JRadioButton();
         rb_Casado = new javax.swing.JRadioButton();
@@ -52,6 +51,13 @@ public class DatosGenerales extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        tb_DNI = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        js_Nac_dia = new javax.swing.JSpinner();
+        js_Nac_mes = new javax.swing.JSpinner();
+        js_Nac_anio = new javax.swing.JSpinner();
+        js_FechaIngreso = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -61,12 +67,11 @@ public class DatosGenerales extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 210, -1));
 
         jLabel2.setText("Nombre");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
-        getContentPane().add(tb_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 120, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 50, 20));
+        getContentPane().add(tb_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 120, -1));
 
-        jLabel3.setText("Tiempo Laboral");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
-        getContentPane().add(tb_Tiempolaborar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 120, -1));
+        jLabel3.setText("Fecha Ingreso");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 20));
 
         btg_EstadoCivil.add(rb_Soltero);
         rb_Soltero.setText("Soltero");
@@ -192,6 +197,25 @@ public class DatosGenerales extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Genero");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
+        getContentPane().add(tb_DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 120, -1));
+
+        jLabel8.setText("DNI");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
+
+        jLabel9.setText("Nacimiento");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 60, 20));
+
+        js_Nac_dia.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+        getContentPane().add(js_Nac_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+
+        js_Nac_mes.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        getContentPane().add(js_Nac_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
+
+        js_Nac_anio.setModel(new javax.swing.SpinnerNumberModel(1950, null, 2020, 1));
+        getContentPane().add(js_Nac_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
+
+        js_FechaIngreso.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.ERA));
+        getContentPane().add(js_FechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,7 +223,48 @@ public class DatosGenerales extends javax.swing.JFrame {
     private void b_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_AceptarActionPerformed
         // TODO add your handling code here:
         
-        //Empleado.setNombre(_nombre);
+        Empleado.setNombre(tb_Nombre.getText());
+        Empleado.setIdentidad(tb_DNI.getText());
+        
+        //Estado Civil
+        if(rb_Soltero.isSelected())
+        {
+            Empleado.setEstadocivil('S');
+        }
+        else if(rb_Casado.isSelected())
+        {
+            Empleado.setEstadocivil('C');
+        }
+        else if(rb_Viudo.isSelected())
+        {
+            Empleado.setEstadocivil('V');
+        }
+        else
+        {
+            Empleado.setEstadocivil('U');
+        }
+        
+        //Genero
+        if(rb_Masculino.isSelected())
+        {
+            Empleado.setGenero('M');
+        }
+        else
+        {
+            Empleado.setGenero('F');
+        }
+        
+        //Tipo Empleado
+        if(rb_Administrativo.isSelected())
+        {
+            Empleado.setTipoempleado('A');
+        }
+        else
+        {
+            Empleado.setTipoempleado('D');
+        }
+        
+       //Empleado.CalcularAntiguedad(js_FechaIngreso.getValue());
     }//GEN-LAST:event_b_AceptarActionPerformed
 
     /**
@@ -248,9 +313,15 @@ public class DatosGenerales extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JSpinner js_FechaIngreso;
+    private javax.swing.JSpinner js_Nac_anio;
+    private javax.swing.JSpinner js_Nac_dia;
+    private javax.swing.JSpinner js_Nac_mes;
     private javax.swing.JRadioButton rb_Administrativo;
     private javax.swing.JRadioButton rb_Casado;
     private javax.swing.JRadioButton rb_Docente;
@@ -259,7 +330,7 @@ public class DatosGenerales extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_Soltero;
     private javax.swing.JRadioButton rb_UnionLibre;
     private javax.swing.JRadioButton rb_Viudo;
+    private javax.swing.JTextField tb_DNI;
     private javax.swing.JTextField tb_Nombre;
-    private javax.swing.JTextField tb_Tiempolaborar;
     // End of variables declaration//GEN-END:variables
 }
