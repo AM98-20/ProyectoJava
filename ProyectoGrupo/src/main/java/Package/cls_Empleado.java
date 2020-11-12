@@ -5,21 +5,23 @@
  */
 package Package;
 
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Oscar Andrade
  */
 public class cls_Empleado {
 
-    //Atributos
-    protected static String _nombre;
-    protected static int _tiempolaboral;
-    protected static char _genero;
-    protected static char _estadocivil;
-    protected static char _tipoempleado;
-    protected static double _sueldo;
- 
-    //Propiedades
+    protected  static String _nombre;
+    protected  static int _antiguedad;
+    protected  static char _genero;
+    protected  static char _estadocivil;
+    protected  static char _tipoempleado;
+    protected  static double _sueldo;
+    protected  static int _edad;
+    protected  static String _identidad;
     
     public String getNombre() {
         return _nombre;
@@ -29,12 +31,12 @@ public class cls_Empleado {
         this._nombre = _nombre;
     }
 
-    public int getTiempolaboral() {
-        return _tiempolaboral;
+    public int getAntiguedad() {
+        return _antiguedad;
     }
 
-    public void setTiempolaboral(int _tiempolaboral) {
-        this._tiempolaboral = _tiempolaboral;
+    public void setAntiguedad(int _antiguedad) {
+        this._antiguedad = _antiguedad;
     }
 
     public char getGenero() {
@@ -60,7 +62,7 @@ public class cls_Empleado {
     public void setTipoempleado(char _tipoempleado) {
         this._tipoempleado = _tipoempleado;
     }
-    
+
     public double getSueldo() {
         return _sueldo;
     }
@@ -69,17 +71,57 @@ public class cls_Empleado {
         this._sueldo = _sueldo;
     }
 
+    public int getEdad() {
+        return _edad;
+    }
+
+    public void setEdad(int _edad) {
+        this._edad = _edad;
+    }
+
+    public String getIdentidad() {
+        return _identidad;
+    }
+
+    //Atributos
+    public void setIdentidad(String _identidad) {
+        this._identidad = _identidad;
+    }
+ 
+ 
+    //Propiedades
+    
+    
     //Metodos
     protected double CalcularSueldo()
     {
         return 0;
     }
     
-    private void MostrarDatos()
+    protected double CalcularPrestaciones()
+    {
+        return 0;
+    }
+    
+    protected void MostrarDatos()
     {
         
     }
     
+    protected void CalcularEdad()
+    {
+        
+    }
+    protected void CalcularAntiguedad(Calendar ingreso)
+    {
+        int tiempo;
+        Calendar fechaactual = Calendar.getInstance();
+        
+        tiempo = fechaactual.get(Calendar.YEAR)- ingreso.get(Calendar.YEAR);
+        _antiguedad = tiempo;
+        
+        JOptionPane.showMessageDialog(null, "Antiguedad: "+_antiguedad);
+    }
    
    
     
