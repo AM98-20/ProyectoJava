@@ -234,6 +234,7 @@ public class DatosGenerales extends javax.swing.JFrame {
         getContentPane().add(js_Ingreso_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_AceptarActionPerformed

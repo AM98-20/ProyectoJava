@@ -17,7 +17,6 @@ public class cls_Docente extends cls_Empleado {
     private static double cesantia = 0;
     private static int numClases = 0;
     private static double pagoClase = 0;
-    private static double sueldoMensual = 0;
 
     //PROPIEDADES ACCESORAS
 
@@ -69,20 +68,11 @@ public class cls_Docente extends cls_Empleado {
         cls_Docente.pagoClase = pagoClase;
     }
 
-    public double getSueldoMensual() {
-        return sueldoMensual;
-    }
-
-    public void setSueldoMensual(double sueldoMensual) {
-        cls_Docente.sueldoMensual = sueldoMensual;
-    }
-    
-
     //METODOS
     @Override
     protected double CalcularSueldo() {
-        sueldoMensual = numClases * pagoClase;
-        return sueldoMensual;
+        _sueldo = numClases * pagoClase;
+        return _sueldo;
     }
     
     @Override
@@ -91,24 +81,22 @@ public class cls_Docente extends cls_Empleado {
     }
     
     public double CalculoCesantia(){
-        cesantia = sueldoMensual * getAntiguedad();
+        cesantia = _sueldo * getAntiguedad();
         return cesantia;
     }
     
     public double CalculoPreaviso(){
-        preaviso = CalcularPrestaciones() + (2*sueldoMensual);
+        preaviso = (2*_sueldo);
         return preaviso;
     }
     
     public double CalculoAguinaldo(){
-        aguinaldo = sueldoMensual * 0.50;
+        aguinaldo = _sueldo * 0.50;
         return aguinaldo;
     }
     
     public double CalculoDecimo(){
-        decimocuarto = sueldoMensual * 0.50;
+        decimocuarto = _sueldo * 0.50;
         return decimocuarto;
     }
-    
-
 }
