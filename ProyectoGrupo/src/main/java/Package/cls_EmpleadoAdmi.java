@@ -16,6 +16,15 @@ public class cls_EmpleadoAdmi extends cls_Empleado{
     private static double preAviso = 0;
     private static double cesantia = 0;
     private static double totalPrestaciones;
+    private static String motivo;
+    
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        cls_EmpleadoAdmi.motivo = motivo;
+    }
     
     public void calcularAguinaldo(){
         cls_EmpleadoAdmi.aguinaldo = getSueldo() * 0.5;
@@ -34,6 +43,13 @@ public class cls_EmpleadoAdmi extends cls_Empleado{
     }
     
     public void calcularCesantia(){
-        cls_EmpleadoAdmi.cesantia = getSueldo() * getTiempolaboral();
+        cls_EmpleadoAdmi.cesantia = getSueldo() * getAntiguedad();
     }
+    
+    @Override
+    protected double CalcularPrestaciones(){
+        totalPrestaciones = cesantia + preAviso + decimocuarto +aguinaldo;
+        return totalPrestaciones;
+    }
+     
 }
