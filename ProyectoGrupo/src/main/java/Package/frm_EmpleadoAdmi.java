@@ -129,6 +129,7 @@ public class frm_EmpleadoAdmi extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     private boolean tryParse(String txt, Class<?> cls){
