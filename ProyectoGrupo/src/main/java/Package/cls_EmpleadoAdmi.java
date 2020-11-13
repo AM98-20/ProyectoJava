@@ -10,13 +10,32 @@ package Package;
  * @author Walter Amador
  */
 public class cls_EmpleadoAdmi extends cls_Empleado{
-    
     private static double aguinaldo = 0;
     private static double decimocuarto = 0;
     private static double preAviso = 0;
     private static double cesantia = 0;
     private static double totalPrestaciones;
     private static String motivo;
+    
+    public double getAguinaldo() {
+        return aguinaldo;
+    }
+
+    public double getDecimocuarto() {
+        return decimocuarto;
+    }
+
+    public double getPreAviso() {
+        return preAviso;
+    }
+
+    public double getCesantia() {
+        return cesantia;
+    }
+
+    public double getTotalPrestaciones() {
+        return totalPrestaciones;
+    }
     
     public String getMotivo() {
         return motivo;
