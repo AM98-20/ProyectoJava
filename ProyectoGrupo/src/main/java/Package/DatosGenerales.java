@@ -293,6 +293,8 @@ public class DatosGenerales extends javax.swing.JFrame {
        Empleado.CalcularEdad(dianacimiento, mesnacimiento, anionacimiento);
        Empleado.CalcularAntiguedad(diaingreso, mesingreso, anioingreso);
        //Empleado.MostrarDatos();
+       
+       
     }//GEN-LAST:event_b_AceptarActionPerformed
 
     /**
