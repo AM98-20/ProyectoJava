@@ -144,15 +144,6 @@ public class cls_Empleado {
           { 
             years--;
           }
-         _antiguedad = years;     
-
-        
+         _antiguedad = years;
     }
-   
-   
-    
-    
-    
-    
-    
 }
