@@ -23,6 +23,15 @@ public class cls_Empleado {
     protected  static double _sueldo;
     protected  static int _edad;
     protected  static String _identidad;
+    protected static String _motivo;
+
+    public void setMotivo(String _motivo) {
+        cls_Empleado._motivo = _motivo;
+    }    
+
+    public  String getMotivo() {
+        return _motivo;
+    }
     
     public String getNombre() {
         return _nombre;
