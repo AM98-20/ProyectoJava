@@ -278,18 +278,19 @@ public class Docentes extends javax.swing.JFrame {
         
         if(rbDespido.isSelected() && rbNo.isSelected()){
             docente.setMotivo(rbDespido.getName());
-            
+            docente.CalculoCesantia();
             docente.CalculoPreaviso();
             docente.CalculoDecimo();
         }
         
         if(rbDespido.isSelected() && rbSi.isSelected()){
             docente.setMotivo(rbDespido.getName());
-            
+            docente.CalculoCesantia();
             docente.setPreaviso(0);
-            docente.CalculoPreaviso();
             docente.CalculoDecimo();
-        }        
+        }
+        MostrarDatos datos = new MostrarDatos();
+        datos.setVisible(true);
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
