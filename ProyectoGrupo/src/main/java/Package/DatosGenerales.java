@@ -315,6 +315,8 @@ public class DatosGenerales extends javax.swing.JFrame {
         else
         {
             Empleado.setTipoempleado('D');
+            Docentes Profesor = new Docentes();
+            Profesor.setVisible(true);
         }
 
        //Empleado.MostrarDatos();
