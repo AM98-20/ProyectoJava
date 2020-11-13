@@ -244,6 +244,18 @@ public class DatosGenerales extends javax.swing.JFrame {
         
         Empleado.setNombre(tb_Nombre.getText());
         Empleado.setIdentidad(tb_DNI.getText());
+       
+        dianacimiento = (int) js_Nac_dia.getValue();
+       mesnacimiento = (int) js_Nac_mes.getValue();
+       anionacimiento = (int) js_Nac_anio.getValue();
+       
+       diaingreso = (int) js_Ingreso_dia.getValue();
+       mesingreso = (int) js_Ingreso_mes.getValue();
+       anioingreso = (int) js_Ingreso_anio.getValue();
+       
+       Empleado.CalcularEdad(dianacimiento, mesnacimiento, anionacimiento);
+       Empleado.CalcularAntiguedad(diaingreso, mesingreso, anioingreso);
+        
         
         //Estado Civil
         if(rb_Soltero.isSelected())
@@ -277,22 +289,17 @@ public class DatosGenerales extends javax.swing.JFrame {
         if(rb_Administrativo.isSelected())
         {
             Empleado.setTipoempleado('A');
+            frm_EmpleadoAdmi Administracion = new frm_EmpleadoAdmi();
+            Administracion.setVisible(true);
         }
         else
         {
             Empleado.setTipoempleado('D');
         }
-       dianacimiento = (int) js_Nac_dia.getValue();
-       mesnacimiento = (int) js_Nac_mes.getValue();
-       anionacimiento = (int) js_Nac_anio.getValue();
-       
-       diaingreso = (int) js_Ingreso_dia.getValue();
-       mesingreso = (int) js_Ingreso_mes.getValue();
-       anioingreso = (int) js_Ingreso_anio.getValue();
-       
-       Empleado.CalcularEdad(dianacimiento, mesnacimiento, anionacimiento);
-       Empleado.CalcularAntiguedad(diaingreso, mesingreso, anioingreso);
+
        //Empleado.MostrarDatos();
+       
+       
        
        
     }//GEN-LAST:event_b_AceptarActionPerformed
