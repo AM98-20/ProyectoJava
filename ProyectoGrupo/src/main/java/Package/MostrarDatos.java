@@ -332,8 +332,8 @@ public class MostrarDatos extends javax.swing.JFrame {
     private void btn_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NuevoActionPerformed
         // TODO add your handling code here:
         DatosGenerales prin = new DatosGenerales();
-        this.setVisible(false);
         prin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_NuevoActionPerformed
 
     /**
