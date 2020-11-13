@@ -54,7 +54,6 @@ public class Docentes extends javax.swing.JFrame {
         rbDespido = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         lblPreavisoRealizado = new javax.swing.JLabel();
-        btnResumen = new javax.swing.JButton();
         btnCalcular = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         rbNo = new javax.swing.JRadioButton();
@@ -168,18 +167,15 @@ public class Docentes extends javax.swing.JFrame {
 
         lblPreavisoRealizado.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblPreavisoRealizado.setText("¿Realizó preaviso?");
-        jPanel1.add(lblPreavisoRealizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 130, 20));
+        jPanel1.add(lblPreavisoRealizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 130, 20));
 
-        btnResumen.setText("Mostrar Resumen");
-        jPanel1.add(btnResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 160, -1));
-
-        btnCalcular.setText("Calcular");
+        btnCalcular.setText("Mostrar Resumen");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalcularActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 120, -1));
+        jPanel1.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 140, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel10.setText("MOTIVO");
@@ -192,7 +188,7 @@ public class Docentes extends javax.swing.JFrame {
                 rbNoActionPerformed(evt);
             }
         });
-        jPanel1.add(rbNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 50, -1));
+        jPanel1.add(rbNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 50, -1));
 
         buttonGroup2.add(rbSi);
         rbSi.setText("Si");
@@ -201,9 +197,9 @@ public class Docentes extends javax.swing.JFrame {
                 rbSiActionPerformed(evt);
             }
         });
-        jPanel1.add(rbSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 50, -1));
+        jPanel1.add(rbSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 50, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 660, 380));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 660, 290));
 
         pack();
         setLocationRelativeTo(null);
@@ -224,7 +220,6 @@ public class Docentes extends javax.swing.JFrame {
         rbNo.setVisible(false);
         rbSi.setVisible(false);
         btnCalcular.setVisible(false);
-        btnResumen.setVisible(false);
         //panelPrestaciones.setVisible(false);
         lblNombre.setText(docente.getNombre());
         lblIdentidad.setText(docente.getIdentidad());
@@ -235,7 +230,6 @@ public class Docentes extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (rbRenuncia.isSelected()) {
             btnCalcular.setVisible(true);
-            btnResumen.setVisible(true);
             //panelPrestaciones.setVisible(true);
             //rbDespido.setEnabled(false);
             rbSi.setVisible(false);
@@ -248,7 +242,6 @@ public class Docentes extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (rbSi.isSelected()) {
             btnCalcular.setVisible(true);
-            btnResumen.setVisible(true);
             //panelPrestaciones.setVisible(true);
             //rbNo.setEnabled(false);
         }
@@ -262,7 +255,6 @@ public class Docentes extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (rbNo.isSelected()) {
             btnCalcular.setVisible(true);
-            btnResumen.setVisible(true);
             //panelPrestaciones.setVisible(true);
             //rbSi.setEnabled(false);
         }
@@ -272,29 +264,32 @@ public class Docentes extends javax.swing.JFrame {
         // TODO add your handling code here:
         docente.setNumClases(Integer.parseInt(jsClase.getValue().toString()));
         docente.setPagoClase(Double.parseDouble(txtPagoClase.getText()));
-        /*
-        lblSueldo.setText("" +nd.format(docente.CalcularSueldo()));
-        lblDecimo.setText("" +nd.format(docente.CalculoDecimo()));
-            lblAguinaldo.setText("" +nd.format(docente.CalculoAguinaldo()));
+        
+        docente.CalcularSueldo();
+        docente.CalculoDecimo();
+        docente.CalculoAguinaldo();
         
         if(rbRenuncia.isSelected()){
+            docente.setMotivo(rbRenuncia.getName());
+            
             docente.setCesantia(0);
             docente.setPreaviso(0);
-            lblPreaviso.setText("0.00");
-            lblCesantia.setText("0.00");
         }
         
         if(rbDespido.isSelected() && rbNo.isSelected()){
-            lblPreaviso.setText("" +nd.format(docente.CalculoPreaviso()));
-            lblCesantia.setText("" +nd.format(docente.CalculoDecimo()));
+            docente.setMotivo(rbDespido.getName());
+            
+            docente.CalculoPreaviso();
+            docente.CalculoDecimo();
         }
         
         if(rbDespido.isSelected() && rbSi.isSelected()){
+            docente.setMotivo(rbDespido.getName());
+            
             docente.setPreaviso(0);
-            lblPreaviso.setText("" +nd.format(docente.CalculoPreaviso()));
-            lblCesantia.setText("" +nd.format(docente.CalculoDecimo()));
-        }
-        */
+            docente.CalculoPreaviso();
+            docente.CalculoDecimo();
+        }        
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
@@ -334,7 +329,6 @@ public class Docentes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
-    private javax.swing.JButton btnResumen;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JDesktopPane jDesktopPane1;
