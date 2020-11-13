@@ -56,17 +56,6 @@ public class Docentes extends javax.swing.JFrame {
         lblPreavisoRealizado = new javax.swing.JLabel();
         btnResumen = new javax.swing.JButton();
         btnCalcular = new javax.swing.JButton();
-        panelPrestaciones = new java.awt.Panel();
-        jLabel9 = new javax.swing.JLabel();
-        lblAguinaldo = new javax.swing.JLabel();
-        lblCesantia = new javax.swing.JLabel();
-        lblPreaviso = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        lblSueldo = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        lblDecimo = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         rbNo = new javax.swing.JRadioButton();
         rbSi = new javax.swing.JRadioButton();
@@ -192,41 +181,6 @@ public class Docentes extends javax.swing.JFrame {
         });
         jPanel1.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 120, -1));
 
-        panelPrestaciones.setBackground(new java.awt.Color(204, 255, 255));
-        panelPrestaciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setText("Aguinaldo:");
-        panelPrestaciones.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, -1));
-
-        lblAguinaldo.setText("-");
-        panelPrestaciones.add(lblAguinaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 90, -1));
-
-        lblCesantia.setText("-");
-        panelPrestaciones.add(lblCesantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 90, -1));
-
-        lblPreaviso.setText("-");
-        panelPrestaciones.add(lblPreaviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 90, -1));
-
-        jLabel14.setText("Sueldo Mensual:");
-        panelPrestaciones.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
-
-        lblSueldo.setText("-");
-        panelPrestaciones.add(lblSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 90, -1));
-
-        jLabel15.setText("Decimo Cuarto:");
-        panelPrestaciones.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 90, -1));
-
-        lblDecimo.setText("-");
-        panelPrestaciones.add(lblDecimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 90, -1));
-
-        jLabel13.setText("Preaviso:");
-        panelPrestaciones.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, -1));
-
-        jLabel12.setText("Cesantia");
-        panelPrestaciones.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, -1));
-
-        jPanel1.add(panelPrestaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 390, 210));
-
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel10.setText("MOTIVO");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, 20));
@@ -271,7 +225,7 @@ public class Docentes extends javax.swing.JFrame {
         rbSi.setVisible(false);
         btnCalcular.setVisible(false);
         btnResumen.setVisible(false);
-        panelPrestaciones.setVisible(false);
+        //panelPrestaciones.setVisible(false);
         lblNombre.setText(docente.getNombre());
         lblIdentidad.setText(docente.getIdentidad());
         lblAnios.setText("" +docente.getAntiguedad());
@@ -282,7 +236,7 @@ public class Docentes extends javax.swing.JFrame {
         if (rbRenuncia.isSelected()) {
             btnCalcular.setVisible(true);
             btnResumen.setVisible(true);
-            panelPrestaciones.setVisible(true);
+            //panelPrestaciones.setVisible(true);
             //rbDespido.setEnabled(false);
             rbSi.setVisible(false);
             rbNo.setVisible(false);
@@ -295,7 +249,7 @@ public class Docentes extends javax.swing.JFrame {
         if (rbSi.isSelected()) {
             btnCalcular.setVisible(true);
             btnResumen.setVisible(true);
-            panelPrestaciones.setVisible(true);
+            //panelPrestaciones.setVisible(true);
             //rbNo.setEnabled(false);
         }
     }//GEN-LAST:event_rbSiActionPerformed
@@ -309,7 +263,7 @@ public class Docentes extends javax.swing.JFrame {
         if (rbNo.isSelected()) {
             btnCalcular.setVisible(true);
             btnResumen.setVisible(true);
-            panelPrestaciones.setVisible(true);
+            //panelPrestaciones.setVisible(true);
             //rbSi.setEnabled(false);
         }
     }//GEN-LAST:event_rbNoActionPerformed
@@ -318,6 +272,7 @@ public class Docentes extends javax.swing.JFrame {
         // TODO add your handling code here:
         docente.setNumClases(Integer.parseInt(jsClase.getValue().toString()));
         docente.setPagoClase(Double.parseDouble(txtPagoClase.getText()));
+        /*
         lblSueldo.setText("" +nd.format(docente.CalcularSueldo()));
         lblDecimo.setText("" +nd.format(docente.CalculoDecimo()));
             lblAguinaldo.setText("" +nd.format(docente.CalculoAguinaldo()));
@@ -339,6 +294,7 @@ public class Docentes extends javax.swing.JFrame {
             lblPreaviso.setText("" +nd.format(docente.CalculoPreaviso()));
             lblCesantia.setText("" +nd.format(docente.CalculoDecimo()));
         }
+        */
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
@@ -385,30 +341,19 @@ public class Docentes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner jsClase;
-    private javax.swing.JLabel lblAguinaldo;
     private javax.swing.JLabel lblAnios;
-    private javax.swing.JLabel lblCesantia;
-    private javax.swing.JLabel lblDecimo;
     private javax.swing.JLabel lblIdentidad;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblPreaviso;
     private javax.swing.JLabel lblPreavisoRealizado;
-    private javax.swing.JLabel lblSueldo;
     private java.awt.Panel panel1;
-    private java.awt.Panel panelPrestaciones;
     private java.awt.PopupMenu popupMenu1;
     private java.awt.PopupMenu popupMenu2;
     private javax.swing.JRadioButton rbDespido;
