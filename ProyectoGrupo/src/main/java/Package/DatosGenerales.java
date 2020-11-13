@@ -22,6 +22,8 @@ public class DatosGenerales extends javax.swing.JFrame {
     }
     
     cls_Empleado Empleado = new cls_Empleado();
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,6 +81,7 @@ public class DatosGenerales extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 20));
 
         btg_EstadoCivil.add(rb_Soltero);
+        rb_Soltero.setSelected(true);
         rb_Soltero.setText("Soltero");
 
         btg_EstadoCivil.add(rb_Casado);
@@ -120,6 +123,7 @@ public class DatosGenerales extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 100, -1));
 
         btg_TipoEmpleado.add(rb_Administrativo);
+        rb_Administrativo.setSelected(true);
         rb_Administrativo.setText("Administrativo");
 
         btg_TipoEmpleado.add(rb_Docente);
@@ -151,6 +155,7 @@ public class DatosGenerales extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
 
         btg_Genero.add(rb_Masculino);
+        rb_Masculino.setSelected(true);
         rb_Masculino.setText("Masculino");
 
         btg_Genero.add(rb_Femenino);
@@ -242,10 +247,25 @@ public class DatosGenerales extends javax.swing.JFrame {
         int mesingreso;
         int anioingreso;
         
-        Empleado.setNombre(tb_Nombre.getText());
-        Empleado.setIdentidad(tb_DNI.getText());
        
-        dianacimiento = (int) js_Nac_dia.getValue();
+        if(tb_Nombre.getText().isEmpty())
+        {
+            Empleado.setNombre("Default");
+        }
+        else
+        {
+            Empleado.setNombre(tb_Nombre.getText());
+        }
+        
+        if(tb_DNI.getText().isEmpty())
+        {
+           Empleado.setIdentidad("0000-0000-0000");
+        }
+        else
+        {
+            Empleado.setIdentidad(tb_DNI.getText());
+        }
+       dianacimiento = (int) js_Nac_dia.getValue();
        mesnacimiento = (int) js_Nac_mes.getValue();
        anionacimiento = (int) js_Nac_anio.getValue();
        
