@@ -15,15 +15,15 @@ import javax.swing.JOptionPane;
  */
 public class cls_Empleado {
 
-    protected  static String _nombre;
-    protected  static int _antiguedad;
+    protected  static String _nombre = "";
+    protected  static int _antiguedad = 0;
     protected  static char _genero;
     protected  static char _estadocivil;
     protected  static char _tipoempleado;
-    protected  static double _sueldo;
-    protected  static int _edad;
-    protected  static String _identidad;
-    protected static String _motivo;
+    protected  static double _sueldo = 0;
+    protected  static int _edad = 0;
+    protected  static String _identidad = "";
+    protected static String _motivo = "";
 
     public void setMotivo(String _motivo) {
         cls_Empleado._motivo = _motivo;
