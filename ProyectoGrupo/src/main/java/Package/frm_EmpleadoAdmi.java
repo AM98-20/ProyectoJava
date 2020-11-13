@@ -177,7 +177,8 @@ public class frm_EmpleadoAdmi extends javax.swing.JFrame {
                     admi.CalcularPrestaciones();
                 }
                 
-                //Llamar a formulario final AQUI
+                MostrarDatos mostrarDatos = new MostrarDatos();
+                mostrarDatos.setVisible(true);
                 this.dispose();
                 
             }else{
