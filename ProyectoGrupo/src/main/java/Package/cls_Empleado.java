@@ -6,6 +6,7 @@
 package Package;
 
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -105,22 +106,47 @@ public class cls_Empleado {
     
     protected void MostrarDatos()
     {
-        
+        System.out.print(""+getNombre());
+        System.out.println(" "+getIdentidad());
+        System.out.println(" "+getEstadocivil());
+        System.out.println(" "+getGenero());
+        System.out.println(" "+getTipoempleado());
+        System.out.println(" "+getAntiguedad());
+        System.out.println(" "+getEdad());
     }
     
-    protected void CalcularEdad()
+    protected void CalcularEdad(int dia, int mes, int anio)
     {
+        Calendar fechaActual = Calendar.getInstance();
+        
+        int years = fechaActual.get(Calendar.YEAR) - anio;
+        int months = fechaActual.get(Calendar.MONTH) - mes;
+        int days = fechaActual.get(Calendar.DAY_OF_MONTH) -dia ;
+ 
+        
+          if(months < 0 || (months==0 && days < 0))
+          { 
+            years--;
+          }
+         _edad = years;
         
     }
-    protected void CalcularAntiguedad(Calendar ingreso)
+    protected void CalcularAntiguedad(int dia, int mes, int anio)
     {
-        int tiempo;
-        Calendar fechaactual = Calendar.getInstance();
+        Calendar fechaActual = Calendar.getInstance();
         
-        tiempo = fechaactual.get(Calendar.YEAR)- ingreso.get(Calendar.YEAR);
-        _antiguedad = tiempo;
+        int years = fechaActual.get(Calendar.YEAR) - anio;
+        int months = fechaActual.get(Calendar.MONTH) - mes;
+        int days = fechaActual.get(Calendar.DAY_OF_MONTH) -dia ;
+ 
         
-        JOptionPane.showMessageDialog(null, "Antiguedad: "+_antiguedad);
+          if(months < 0 || (months==0 && days < 0))
+          { 
+            years--;
+          }
+         _antiguedad = years;     
+
+        
     }
    
    

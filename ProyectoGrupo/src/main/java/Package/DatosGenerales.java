@@ -5,6 +5,9 @@
  */
 package Package;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author Oscar Andrade
@@ -57,7 +60,9 @@ public class DatosGenerales extends javax.swing.JFrame {
         js_Nac_dia = new javax.swing.JSpinner();
         js_Nac_mes = new javax.swing.JSpinner();
         js_Nac_anio = new javax.swing.JSpinner();
-        js_FechaIngreso = new javax.swing.JSpinner();
+        js_Ingreso_dia = new javax.swing.JSpinner();
+        js_Ingreso_mes = new javax.swing.JSpinner();
+        js_Ingreso_anio = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -214,14 +219,28 @@ public class DatosGenerales extends javax.swing.JFrame {
         js_Nac_anio.setModel(new javax.swing.SpinnerNumberModel(1950, null, 2020, 1));
         getContentPane().add(js_Nac_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, -1, -1));
 
-        js_FechaIngreso.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.ERA));
-        getContentPane().add(js_FechaIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+        js_Ingreso_dia.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+        getContentPane().add(js_Ingreso_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+
+        js_Ingreso_mes.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        getContentPane().add(js_Ingreso_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+
+        js_Ingreso_anio.setModel(new javax.swing.SpinnerNumberModel(1950, null, 2020, 1));
+        getContentPane().add(js_Ingreso_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_AceptarActionPerformed
         // TODO add your handling code here:
+        
+        int dianacimiento;
+        int mesnacimiento;
+        int anionacimiento;
+        
+        int diaingreso;
+        int mesingreso;
+        int anioingreso;
         
         Empleado.setNombre(tb_Nombre.getText());
         Empleado.setIdentidad(tb_DNI.getText());
@@ -263,8 +282,17 @@ public class DatosGenerales extends javax.swing.JFrame {
         {
             Empleado.setTipoempleado('D');
         }
-        
-       //Empleado.CalcularAntiguedad(js_FechaIngreso.getValue());
+       dianacimiento = (int) js_Nac_dia.getValue();
+       mesnacimiento = (int) js_Nac_mes.getValue();
+       anionacimiento = (int) js_Nac_anio.getValue();
+       
+       diaingreso = (int) js_Ingreso_dia.getValue();
+       mesingreso = (int) js_Ingreso_mes.getValue();
+       anioingreso = (int) js_Ingreso_anio.getValue();
+       
+       Empleado.CalcularEdad(dianacimiento, mesnacimiento, anionacimiento);
+       Empleado.CalcularAntiguedad(diaingreso, mesingreso, anioingreso);
+       //Empleado.MostrarDatos();
     }//GEN-LAST:event_b_AceptarActionPerformed
 
     /**
@@ -318,7 +346,9 @@ public class DatosGenerales extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JSpinner js_FechaIngreso;
+    private javax.swing.JSpinner js_Ingreso_anio;
+    private javax.swing.JSpinner js_Ingreso_dia;
+    private javax.swing.JSpinner js_Ingreso_mes;
     private javax.swing.JSpinner js_Nac_anio;
     private javax.swing.JSpinner js_Nac_dia;
     private javax.swing.JSpinner js_Nac_mes;
