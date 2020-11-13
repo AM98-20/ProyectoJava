@@ -319,10 +319,7 @@ public class DatosGenerales extends javax.swing.JFrame {
             Profesor.setVisible(true);
         }
 
-       //Empleado.MostrarDatos();
-       
-       
-       
+       //Empleado.MostrarDatos();          
        
     }//GEN-LAST:event_b_AceptarActionPerformed
 
